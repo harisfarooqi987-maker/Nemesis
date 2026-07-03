@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nemesis Scan Report – http://zero.webappsecurity.com</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+h1 { color: #b91c1c; }
+.card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+canvas { max-width: 600px; margin: 0 auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+th { background-color: #b91c1c; color: white; }
+.sev-Critical { background-color: #dc3545; color: white; }
+.sev-High { background-color: #fd7e14; color: white; }
+.sev-Medium { background-color: #ffc107; }
+.sev-Low { background-color: #0dcaf0; }
+.sev-Informational { background-color: #6c757d; color: white; }
+</style>
+</head>
+<body>
+<h1>🔥 Nemesis Scan Report</h1>
+<div class="card">
+<p><strong>Target:</strong> http://zero.webappsecurity.com</p>
+<p><strong>Scan Date:</strong> 2026-07-03 15:23:45 UTC</p>
+<p><strong>Author:</strong> Haris Farooqi</p>
+</div>
+
+<div class="card">
+<h2>Executive Summary</h2>
+<p>Total Findings: 12</p>
+<ul>
+  <li>Medium: 11</li><li>Informational: 1</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Risk Distribution</h2>
+<canvas id="severityChart"></canvas>
+</div>
+
+<script>
+const ctx = document.getElementById('severityChart').getContext('2d');
+new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ["Critical", "High", "Medium", "Low", "Informational"],
+        datasets: [{
+            data: [0, 0, 11, 0, 1],
+            backgroundColor: ['#dc3545','#fd7e14','#ffc107','#0dcaf0','#6c757d']
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: { legend: { position: 'bottom' } }
+    }
+});
+</script>
+
+<div class="card">
+<h2>Asset & Technology Summary</h2>
+<p><strong>Technologies Detected:</strong> None</p>
+<p><strong>WAF/CDN:</strong> None</p>
+<p><strong>URLs Crawled:</strong> 1</p>
+<p><strong>Forms Found:</strong> 0</p>
+</div>
+
+<div class="card">
+<h2>Findings (12)</h2>
+<table>
+<tr><th>#</th><th>Type</th><th>Severity</th><th>Confidence</th><th>URL</th><th>Evidence</th><th>Remediation</th></tr>
+<tr class="sev-Medium"><td>1</td><td>Missing Strict-Transport-Security</td><td>Medium</td><td>Confirmed</td><td></td><td>Strict-Transport-Security header not present.</td><td>Set HSTS with max-age >= 31536000 and includeSubDomains.</td></tr><tr class="sev-Medium"><td>2</td><td>Missing Content-Security-Policy</td><td>Medium</td><td>Confirmed</td><td></td><td>Content-Security-Policy header not present.</td><td>Implement a strong CSP to mitigate XSS and data injection.</td></tr><tr class="sev-Medium"><td>3</td><td>Missing X-Frame-Options</td><td>Medium</td><td>Confirmed</td><td></td><td>X-Frame-Options header not present.</td><td>Use DENY or SAMEORIGIN to prevent clickjacking.</td></tr><tr class="sev-Medium"><td>4</td><td>Missing X-Content-Type-Options</td><td>Medium</td><td>Confirmed</td><td></td><td>X-Content-Type-Options header not present.</td><td>Set to 'nosniff' to stop MIME-type sniffing.</td></tr><tr class="sev-Medium"><td>5</td><td>Missing Referrer-Policy</td><td>Medium</td><td>Confirmed</td><td></td><td>Referrer-Policy header not present.</td><td>Use a strict Referrer-Policy (e.g., strict-origin-when-cross-origin).</td></tr><tr class="sev-Medium"><td>6</td><td>Missing Permissions-Policy</td><td>Medium</td><td>Confirmed</td><td></td><td>Permissions-Policy header not present.</td><td>Define a restrictive Permissions-Policy header.</td></tr><tr class="sev-Medium"><td>7</td><td>Missing Cross-Origin-Opener-Policy</td><td>Medium</td><td>Confirmed</td><td></td><td>Cross-Origin-Opener-Policy header not present.</td><td>Set COOP to same-origin to isolate browsing contexts.</td></tr><tr class="sev-Medium"><td>8</td><td>Missing Cross-Origin-Embedder-Policy</td><td>Medium</td><td>Confirmed</td><td></td><td>Cross-Origin-Embedder-Policy header not present.</td><td>Use COEP require-corp to enable cross-origin isolation.</td></tr><tr class="sev-Medium"><td>9</td><td>Missing Cross-Origin-Resource-Policy</td><td>Medium</td><td>Confirmed</td><td></td><td>Cross-Origin-Resource-Policy header not present.</td><td>Set CORP to same-origin to restrict resource loading.</td></tr><tr class="sev-Medium"><td>10</td><td>CORS Misconfiguration (origin reflection)</td><td>Medium</td><td>Confirmed</td><td></td><td>Origin: * reflected back in ACAO.</td><td>Do not reflect arbitrary origins.</td></tr><tr class="sev-Informational"><td>11</td><td>TLS Connection Error</td><td>Informational</td><td></td><td></td><td>[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1033)</td><td>Ensure TLS is properly configured.</td></tr><tr class="sev-Medium"><td>12</td><td>Sensitive File Exposure</td><td>Medium</td><td>Confirmed</td><td>http://zero.webappsecurity.com/server-status</td><td>Status 200, length 5523 bytes</td><td>Restrict access to sensitive files, disable directory listing.</td></tr>
+</table>
+</div>
+</body>
+</html>
