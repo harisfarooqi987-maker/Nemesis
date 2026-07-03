@@ -1,3 +1,11 @@
+███╗   ██╗███████╗███╗   ███╗███████╗███████╗██╗███████╗
+████╗  ██║██╔════╝████╗ ████║██╔════╝██╔════╝██║██╔════╝
+██╔██╗ ██║█████╗  ██╔████╔██║█████╗  ███████╗██║███████╗
+██║╚██╗██║██╔══╝  ██║╚██╔╝██║██╔══╝  ╚════██║██║╚════██║
+██║ ╚████║███████╗██║ ╚═╝ ██║███████╗███████║██║███████║
+╚═╝  ╚═══╝╚══════╝╚═╝     ╚═╝╚══════╝╚══════╝╚═╝╚══════╝
+   🔥  The Autonomous Bug Bounty Assassin  🔥
+           Crafted by Haris Farooqi
 Nemesis —  Bug Bounty 
 <p align="center"> <img src="https://raw.githubusercontent.com/harisfarooqi/nemesis/main/assets/banner.png" alt="Nemesis Banner" width="100%" /> </p><p align="center"> <img src="https://img.shields.io/badge/version-1.0.0-blue?style=flat-square" alt="Version"> <img src="https://img.shields.io/badge/python-3.9%2B-green?style=flat-square&logo=python" alt="Python"> <img src="https://img.shields.io/badge/license-MIT-yellow?style=flat-square" alt="License"> <img src="https://img.shields.io/github/stars/harisfarooqi/nemesis?style=flat-square" alt="Stars"> </p>
 ✨ Why Nemesis?
